@@ -11,33 +11,8 @@ import java.io.PrintWriter;
 @WebServlet(urlPatterns = "/main")
 public class MainServlet extends HttpServlet {
 
-    //init
-    //service
-    //destroy
-
-//    @Override
-//    public void init() throws ServletException {
-//        System.out.println("init");
-//    }
-
-//    @Override
-//    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        super.service(req, resp);
-//        System.out.println("service");
-//    }
-
-//    @Override
-//    public void destroy() {
-//        System.out.println("destroy");
-//    }
-
-//    @Override
-//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//
-//    }
-
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String operationType = req.getParameter("operationType");
         int num1 = Integer.parseInt(req.getParameter("num1"));
         int num2 = Integer.parseInt(req.getParameter("num2"));
