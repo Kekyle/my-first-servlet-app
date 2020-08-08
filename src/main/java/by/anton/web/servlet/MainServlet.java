@@ -11,14 +11,23 @@ import java.io.PrintWriter;
 @WebServlet(urlPatterns = "/main")
 public class MainServlet extends HttpServlet {
 
+    //servlet context (application context)
+    //session context
+    //request context
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
         String operationType = req.getParameter("operationType");
         int num1 = Integer.parseInt(req.getParameter("num1"));
         int num2 = Integer.parseInt(req.getParameter("num2"));
         int result = getResult(operationType, num1, num2);
-        PrintWriter writer = resp.getWriter();
-        writer.println("num1  = " + num1 + " num2 = " + num2 + " operation = " + operationType + "\n" + "result = " + result);
+
+//        getServletContext().setAttribute("result", result);
+//        req.getSession().setAttribute("result", result);
+        req.setAttribute("result", result);
+
+        getServletContext().getRequestDispatcher("/second").forward(req, resp);
     }
 
     private int getResult(String operationType, int num1, int num2) {
