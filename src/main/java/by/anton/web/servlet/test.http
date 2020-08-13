@@ -1,0 +1,72 @@
+POST http://localhost:8080/registration
+Content-Type: application/x-www-form-urlencoded
+
+login=anton&password=12345678&age=22&name=Anton
+
+###
+
+POST http://localhost:8080/authorization
+Content-Type: application/x-www-form-urlencoded
+
+login=NewLogin&password=12345678
+
+###
+
+PUT http://localhost:8080/user?field=age
+Content-Type: application/x-www-form-urlencoded
+
+age=32
+
+###
+
+PUT http://localhost:8080/user?field=name
+Content-Type: application/x-www-form-urlencoded
+
+name=NewName
+
+###
+
+#GET http://localhost:8080/main?operationType=mul&num1=11&num2=5
+#
+####
+#
+#GET http://localhost:8080/history?type=user
+#
+####
+
+GET http://localhost:8080/user?field=all
+Content-Type: application/x-www-form-urlencoded
+
+login=anton
+
+####
+
+#GET http://localhost:8080/logout
+#
+####
+#
+#POST http://localhost:8080/registration
+#Content-Type: application/x-www-form-urlencoded
+#
+#login=anton2&password=12345678&age=22&name=Anton2
+#
+####
+#
+#POST http://localhost:8080/authorization
+#Content-Type: application/x-www-form-urlencoded
+#
+#login=anton2&password=12345678
+#
+####
+#
+#GET http://localhost:8080/main?operationType=mul&num1=11&num2=5
+#
+####
+#
+#GET http://localhost:8080/history?type=user
+#
+####
+#
+#GET http://localhost:8080/history?type=all
+#
+####
