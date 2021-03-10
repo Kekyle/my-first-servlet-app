@@ -15,7 +15,6 @@ public class UserServlet extends HttpServlet {
 
     private UserStorage userStorage = new UserStorage();
 
-    // TODO: 08.08.2020
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String field = req.getParameter("field");
@@ -37,24 +36,20 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String field = req.getParameter("field");
+        String value = req.getParameter("value");
         User currentUser = (User) req.getSession().getAttribute("currentUser");
         switch (field) {
             case "login":
-                String login = req.getParameter("login");
-                userStorage.updateLoginById(login, currentUser.getId());
+                userStorage.updateLoginById(value, currentUser.getId());
                 break;
             case "password":
-                String password = req.getParameter("password");
-                userStorage.updatePasswordById(password, currentUser.getId());
+                userStorage.updatePasswordById(value, currentUser.getId());
                 break;
             case "age":
-                // TODO: 08.08.2020
-                int age = Integer.parseInt(req.getParameter("age"));
-                userStorage.updateAgeById(age, currentUser.getId());
+                userStorage.updateAgeById(Integer.parseInt(value), currentUser.getId());
                 break;
             case "name":
-                String name = req.getParameter("name");
-                userStorage.updateNameById(name, currentUser.getId());
+                userStorage.updateNameById(value, currentUser.getId());
                 break;
         }
 
